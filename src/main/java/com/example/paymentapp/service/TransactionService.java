@@ -53,7 +53,7 @@ public class TransactionService {
 
         Transaction transaction = Transaction.builder().transactionAmount(amount)
                 .transactionDate(LocalDateTime.now())
-                .merchantId(merchant.getGpaId())
+                .merchantId(merchantId)
                 .cardId(cardId).build();
 
        transactionRepository.save(transaction);

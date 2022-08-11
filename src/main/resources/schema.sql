@@ -42,12 +42,9 @@ ALTER TABLE card
 
 CREATE TABLE transaction (
                           transaction_id BIGINT AUTO_INCREMENT  PRIMARY KEY,
-                          mcc VARCHAR(50) NOT NULL ,
-                          merchant_name VARCHAR(50) NOT NULL ,
-                          gpa_id BIGINT NOT NULL
+                          transaction_amount DOUBLE  NOT NULL ,
+                          merchant_id BIGINT NOT NULL,
+                          transaction_date DATETIME NOT NULL,
+                          card_id BIGINT NOT NULL
 );
-
-ALTER TABLE transaction
-    ADD FOREIGN KEY (gpa_id)
-        REFERENCES gpa(gpa_id);
 
