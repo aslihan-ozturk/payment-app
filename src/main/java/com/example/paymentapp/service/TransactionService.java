@@ -11,6 +11,7 @@ import com.example.paymentapp.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
@@ -31,6 +32,7 @@ public class TransactionService {
     CardRepository cardRepository;
 
 
+    @Transactional
     public Transaction pay(Long cardId, Double amount, Long merchantId) throws Exception {
        Card card = cardRepository.findById(cardId).orElseThrow(() -> new DataNotFoundException("Invalid card id"));
        Gpa userGpa = gpaRepository.findById(card.getGpaId()).orElseThrow(() -> new DataNotFoundException("Invalid Gpa id"));
